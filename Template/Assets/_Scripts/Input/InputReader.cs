@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Util.Input;
 
 namespace Template.Input
 {
 	[CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
-    public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.IMenuActions
+    public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.IMenuActions, IInputReader
     {
         private GameInput _gameInput;
 
@@ -15,13 +16,19 @@ namespace Template.Input
         public event UnityAction ExampleEvent = delegate { };
         public event UnityAction ExampleCancelledEvent = delegate { };
 
-		#endregion
+        #endregion
 
-		#region Menu Events
+        #region Menu Events
 
-		#endregion
+        public event UnityAction MenuPauseEvent = delegate { };
+        public event UnityAction MenuUnpauseEvent = delegate { };
+        public event UnityAction MenuAcceptButtonEvent = delegate { };
+        public event UnityAction MenuCancelButtonEvent = delegate { };
+        public event UnityAction<int> ChangeTabEvent = delegate { };
 
-		private void OnEnable()
+        #endregion
+
+        private void OnEnable()
 		{
 			if (_gameInput == null)
 			{
@@ -31,10 +38,10 @@ namespace Template.Input
 				_gameInput.Menu.SetCallbacks(this);
 
 				// Default
-				EnableGameplayInput();
+				// EnableGameplayInput();
+                EnableMenuInput();
 			}
-
-		}
+        }
 
 		private void OnDisable()
 		{
@@ -60,7 +67,14 @@ namespace Template.Input
             MoveEvent.Invoke(context.ReadValue<Vector2>());
         }
 
-        public void OnAttack(InputAction.CallbackContext context)
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                MenuPauseEvent.Invoke();
+        }
+
+        // TODO: Remove
+        public void OnExample(InputAction.CallbackContext context)
         {
             switch (context.phase)
 		    {
@@ -83,12 +97,44 @@ namespace Template.Input
 			_gameInput.Menu.Enable();
 		}
 
-        public void OnNewaction(InputAction.CallbackContext context)
+        public void OnNavigate(InputAction.CallbackContext context)
         {
-            throw new System.NotImplementedException();
-        }        
+            // Ignored, handled by event system
+        }
+
+        public void OnAccept(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                MenuAcceptButtonEvent.Invoke();
+        }
+
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                MenuCancelButtonEvent.Invoke();
+        }
+
+        public void OnUnpause(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                MenuUnpauseEvent.Invoke();
+        }
+
+        public void OnChangeTab(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                var val = context.ReadValue<float>();
+                ChangeTabEvent.Invoke(Mathf.RoundToInt(val));
+            }
+        }
 
         #endregion
+
+        void OnDeviceLost()
+        {
+
+        }
 
     }
 }
