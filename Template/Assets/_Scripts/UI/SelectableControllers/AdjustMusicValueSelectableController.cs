@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using Util.Enums;
 using Util.Systems;
 
-namespace Template.UI.ButtonControllers
+namespace Template.UI.SelectableControllers
 {
     public class AdjustMusicValueSelectableController : AdjustValueSelectableController
     {
@@ -16,17 +17,32 @@ namespace Template.UI.ButtonControllers
             OnValueChangedEvent.Invoke("" + _value);
         }
 
+        public override void OnSelect(BaseEventData eventData)
+        {
+            base.OnSelect(eventData);
+
+            _inputReader.MenuNavigateEvent += OnNavigate;
+        }
+
+        public override void OnDeselect(BaseEventData eventData)
+        {
+            _inputReader.MenuNavigateEvent -= OnNavigate;
+        }
+
         protected override void Increase()
         {
             var newVol = Mathf.Min(20, GetVolume() + _incrementValue);
             SetVolume(newVol);
 
+            OnValueChangedEvent.Invoke("" + _value);
         }
 
         protected override void Decrease()
         {
             var newVol = Mathf.Max(-80, GetVolume() - _incrementValue);
             SetVolume(newVol);
+
+            OnValueChangedEvent.Invoke("" + _value);
         }
 
         private float GetVolume()

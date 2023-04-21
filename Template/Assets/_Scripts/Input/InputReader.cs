@@ -20,6 +20,8 @@ namespace Template.Input
 
         #region Menu Events
 
+        public event UnityAction<Vector2> MenuNavigateEvent = delegate { };
+        public event UnityAction MenuNavigateCancelledEvent = delegate { };
         public event UnityAction MenuPauseEvent = delegate { };
         public event UnityAction MenuUnpauseEvent = delegate { };
         public event UnityAction MenuAcceptButtonEvent = delegate { };
@@ -99,7 +101,18 @@ namespace Template.Input
 
         public void OnNavigate(InputAction.CallbackContext context)
         {
-            // Ignored, handled by event system
+            // Handled by event system, but we still may want to access
+            // ex. slider controls, enum pickers, etc.
+
+            switch (context.phase)
+            {
+                case InputActionPhase.Performed:
+                    MenuNavigateEvent.Invoke(context.ReadValue<Vector2>());
+                    break;
+                case InputActionPhase.Canceled:
+                    MenuNavigateCancelledEvent.Invoke();
+                    break;
+            }
         }
 
         public void OnAccept(InputAction.CallbackContext context)
