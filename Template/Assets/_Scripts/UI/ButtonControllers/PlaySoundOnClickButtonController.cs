@@ -10,6 +10,6 @@ namespace Template.UI.ButtonControllers
     {
         [SerializeField] private AudioSoundSO _audioSound;
 
-        public override void OnClick() => AudioSystem.Instance.PlayAudioSound(_audioSound);
+        protected override void OnClick() => AudioSystem.Instance.PlayAudioSound(_audioSound);
     }
 }

@@ -4,7 +4,7 @@ using Util.Audio;
 using Util.Systems;
 using Util.UI.Controllers.Selectables;
 
-namespace Template.UI.ButtonControllers
+namespace Template.UI.SelectableControllers
 {
     public class PlaySoundOnSelectSelectableController : ASelectableController
     {

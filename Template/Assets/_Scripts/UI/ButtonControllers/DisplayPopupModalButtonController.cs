@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using Util.Attributes;
-using Util.Helpers;
+using Util.UI;
 using Util.UI.Controllers.Selectables.Buttons;
 using Util.UI.Modals;
 
@@ -9,7 +8,7 @@ namespace Template.UI.ButtonControllers
 {
     public class DisplayPopupModalButtonController : AButtonController
     {
-        [SerializeField] [PrefabOnly] private ModalController _modalPrefab;
+        [SerializeField] private UIPage _modalPage;
 
         [SerializeField] private string _modalTitle = "";
         [SerializeField] private string _modalDescription = "";
@@ -17,18 +16,13 @@ namespace Template.UI.ButtonControllers
         public UnityEvent OnModalYesEvent = new UnityEvent();
         public UnityEvent OnModalNoEvent = new UnityEvent();
 
-        private ModalController _modal;
-
-        void Start()
+        protected override void OnClick()
         {
-            _modal = Instantiate(_modalPrefab, _canvasController.transform);
-            _modal.gameObject.Disable();
-        }
+            var modal = (ModalUIController) _canvasController.GetUI(_modalPage);
+            if (modal == null) 
+                return;
 
-        public override void OnClick()
-        {
-            StartCoroutine(_modal.DisplayModal(_modalTitle, _modalDescription, OnModalYesEvent.Invoke, OnModalNoEvent.Invoke));
+            modal.DisplayModal(_modalTitle, _modalDescription, OnModalYesEvent.Invoke, OnModalNoEvent.Invoke);
         }
-
     }
 }

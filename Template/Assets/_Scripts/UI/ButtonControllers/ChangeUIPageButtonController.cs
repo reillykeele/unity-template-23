@@ -7,7 +7,7 @@ namespace Template.UI.ButtonControllers
     {
         public UIPage TargetUiPage;
 
-        public override void OnClick()
+        protected override void OnClick()
         {
             _canvasController.SwitchUI(TargetUiPage);
         }

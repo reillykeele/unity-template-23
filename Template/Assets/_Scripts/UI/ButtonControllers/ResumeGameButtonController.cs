@@ -5,6 +5,6 @@ namespace Template.UI.ButtonControllers
 {
     public class ResumeGameButtonController : AButtonController
     {
-        public override void OnClick() => GameSystem.Instance.ResumeGame();
+        protected override void OnClick() => GameSystem.Instance.ResumeGame();
     }
 }

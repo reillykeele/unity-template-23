@@ -7,8 +7,8 @@ namespace Template.UI.ButtonControllers
     public class SetGameStateButtonController : AButtonController
     {
         public GameState TargetGameState;
-    
-        public override void OnClick()
+
+        protected override void OnClick()
         {
             GameSystem.Instance.ChangeGameState(TargetGameState);
         }

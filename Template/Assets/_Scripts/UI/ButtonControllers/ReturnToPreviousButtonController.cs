@@ -4,7 +4,7 @@ namespace Template.UI.ButtonControllers
 {
     public class ReturnToPreviousButtonController : AButtonController
     {
-        public override void OnClick()
+        protected override void OnClick()
         {
             _canvasController.ReturnToPrevious();
         }

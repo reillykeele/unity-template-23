@@ -8,8 +8,8 @@ namespace Template.UI.ButtonControllers
     {
         public string TargetScene;
         public float Delay = 0f;
-    
-        public override void OnClick()
+
+        protected override void OnClick()
         {
             // _canvasAudioController?.FadeOutBackgroundMusic();
             StartCoroutine(CoroutineUtil.WaitForExecute(() => LoadingSystem.Instance.LoadSceneCoroutine(TargetScene), Delay));

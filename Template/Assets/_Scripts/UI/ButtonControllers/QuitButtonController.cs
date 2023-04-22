@@ -5,7 +5,7 @@ namespace Template.UI.ButtonControllers
 {
     public class QuitButtonController : AButtonController
     {
-        public override void OnClick()
+        protected override void OnClick()
         {
             // _canvasAudioController?.FadeOutBackgroundMusic();
             LoadingSystem.Instance.QuitGame();
