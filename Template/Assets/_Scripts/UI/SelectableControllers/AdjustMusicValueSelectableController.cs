@@ -48,14 +48,14 @@ namespace Template.UI.SelectableControllers
         private float GetVolume()
         {
             var volName = _mixerGroup.ToString();
-            GameSystem.Instance.Mixer.GetFloat(volName, out var vol);
+            AudioSystem.Instance.Mixer.GetFloat(volName, out var vol);
             return vol;
         }
 
         private void SetVolume(float vol)
         {
             var volName = _mixerGroup.ToString();
-            GameSystem.Instance.Mixer.SetFloat(volName, vol);
+            AudioSystem.Instance.Mixer.SetFloat(volName, vol);
 
             _value = vol + 80f;
         }

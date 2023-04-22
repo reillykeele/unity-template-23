@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 5949894364042649327}
   - component: {fileID: 2290530994048745614}
   - component: {fileID: 897387318166524417}
+  - component: {fileID: 7104459757410099291}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -704,6 +705,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7104459757410099291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133660731089282967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3ede472abcdac409fc19d811478f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSound: {fileID: 11400000, guid: e3cbb62d1fab8514eb66e5e052354e46, type: 2}
 --- !u!1 &4907551116649775894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1088,7 @@ GameObject:
   - component: {fileID: 3883767389965793902}
   - component: {fileID: 5840951109961702030}
   - component: {fileID: 247106466723074997}
+  - component: {fileID: 5302317955464264184}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -1204,3 +1219,16 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5302317955464264184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202515672610769148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3ede472abcdac409fc19d811478f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSound: {fileID: 11400000, guid: e3cbb62d1fab8514eb66e5e052354e46, type: 2}

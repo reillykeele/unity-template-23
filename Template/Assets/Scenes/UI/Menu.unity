@@ -189,9 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Page: {fileID: 11400000, guid: 5ca011d81b9071f4da169df19d24e1dc, type: 2}
-  ReturnPage: {fileID: 0}
+  ReturnPage: {fileID: 11400000, guid: 44a81b9c1fef9344aa0d35ca28817087, type: 2}
   _initialSelected: {fileID: 0}
   _lastSelected: {fileID: 0}
+  _returnToPreviousAudio: {fileID: 0}
 --- !u!1 &133930154
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +704,11 @@ MonoBehaviour:
   ReturnPage: {fileID: 0}
   _initialSelected: {fileID: 0}
   _lastSelected: {fileID: 0}
-  TargetUiPageType: {fileID: 11400000, guid: 5ca011d81b9071f4da169df19d24e1dc, type: 2}
+  _returnToPreviousAudio: {fileID: 11400000, guid: eb125a71b49b28e44ad3400d4f8ec2a1,
+    type: 2}
+  _inputReader: {fileID: 11400000, guid: c390853b390e5fe4d88375dc8397cbaa, type: 2}
+  _targetUiPageType: {fileID: 11400000, guid: 5ca011d81b9071f4da169df19d24e1dc, type: 2}
+  _startSound: {fileID: 11400000, guid: d54aa7c4f3a0bdc41b49f792b19ea407, type: 2}
 --- !u!1 &527416648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2392,7 @@ MonoBehaviour:
   ReturnPage: {fileID: 0}
   _initialSelected: {fileID: 0}
   _lastSelected: {fileID: 0}
+  _returnToPreviousAudio: {fileID: 0}
   _initialTab: -1
 --- !u!225 &1401314737
 CanvasGroup:
@@ -3279,7 +3285,7 @@ PrefabInstance:
     - target: {fileID: 3792595726709925639, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 487.5
       objectReference: {fileID: 0}
     - target: {fileID: 3792595726709925639, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
@@ -3379,7 +3385,7 @@ PrefabInstance:
     - target: {fileID: 4327355054173088670, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 487.5
       objectReference: {fileID: 0}
     - target: {fileID: 4327355054173088670, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
@@ -3454,7 +3460,7 @@ PrefabInstance:
     - target: {fileID: 4558645515723821075, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 487.5
       objectReference: {fileID: 0}
     - target: {fileID: 4558645515723821075, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
@@ -3714,7 +3720,7 @@ PrefabInstance:
     - target: {fileID: 6398674585149394987, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 487.5
       objectReference: {fileID: 0}
     - target: {fileID: 6398674585149394987, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
@@ -3732,6 +3738,12 @@ PrefabInstance:
       propertyPath: returnPage
       value: 
       objectReference: {fileID: 11400000, guid: 5ca011d81b9071f4da169df19d24e1dc,
+        type: 2}
+    - target: {fileID: 7065055659086162896, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
+        type: 3}
+      propertyPath: _returnToPreviousAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: eb125a71b49b28e44ad3400d4f8ec2a1,
         type: 2}
     - target: {fileID: 7446617501983916446, guid: ea6cec146a083af4a9cfcaa1f7fd8b9e,
         type: 3}
@@ -4745,9 +4757,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Page: {fileID: 11400000, guid: 5ca011d81b9071f4da169df19d24e1dc, type: 2}
-  ReturnPage: {fileID: 0}
+  ReturnPage: {fileID: 11400000, guid: 44a81b9c1fef9344aa0d35ca28817087, type: 2}
   _initialSelected: {fileID: 0}
   _lastSelected: {fileID: 0}
+  _returnToPreviousAudio: {fileID: 0}
 --- !u!1 &2092956783
 GameObject:
   m_ObjectHideFlags: 0

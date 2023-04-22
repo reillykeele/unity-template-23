@@ -16,7 +16,7 @@ namespace Template.UI.SelectableControllers
         
         protected override void Start()
         {
-            var vol = GameSystem.Instance.GetMixerVolume(_mixerGroup.ToString());
+            var vol = AudioSystem.Instance.GetMixerVolume(_mixerGroup.ToString());
             _slider.value = vol;
 
             _slider.onValueChanged.AddListener(SetVolumeFromSlider);
@@ -71,7 +71,7 @@ namespace Template.UI.SelectableControllers
 
         private void SetVolumeFromSlider(float value)
         {
-            GameSystem.Instance.SetMixerVolume(_mixerGroup.ToString(), value);
+            AudioSystem.Instance.SetMixerVolume(_mixerGroup.ToString(), value);
         }
     }
 }

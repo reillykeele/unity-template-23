@@ -1,5 +1,8 @@
+using Template.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Util.Audio;
+using Util.Systems;
 using Util.UI;
 using Util.UI.Controllers;
 
@@ -7,8 +10,12 @@ namespace UI.UIControllers
 {
     public class StartMenuUIController : UIController
     {
-        [Header("Start Menu UI Controller")]
-        public UIPage TargetUiPageType;
+        [Header("Start Menu UI Controller")] 
+        [SerializeField] private InputReader _inputReader;
+        [SerializeField] private UIPage _targetUiPageType;
+
+        [Header("Audio")] [SerializeField] 
+        private AudioSoundSO _startSound;
 
         protected override void Awake()
         {
@@ -35,7 +42,9 @@ namespace UI.UIControllers
                 Mouse.current?.leftButton.wasPressedThisFrame == true)
             {
                 // _canvasAudioController.Play(CanvasAudioController.CanvasAudioSoundType.Start);
-                _canvasController.SwitchUI(TargetUiPageType, true);
+                if (_startSound != null)
+                    AudioSystem.Instance.PlayAudioSound(_startSound);
+                _canvasController.SwitchUI(_targetUiPageType, true);
             }
         }
     }
