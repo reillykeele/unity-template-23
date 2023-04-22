@@ -27,7 +27,7 @@ namespace Template.UI.ButtonControllers
 
         public override void OnClick()
         {
-            _modal.DisplayModal(_modalTitle, _modalDescription, OnModalYesEvent.Invoke, OnModalNoEvent.Invoke);
+            StartCoroutine(_modal.DisplayModal(_modalTitle, _modalDescription, OnModalYesEvent.Invoke, OnModalNoEvent.Invoke));
         }
 
     }

@@ -16,23 +16,36 @@ namespace Template.UI.SelectableControllers
         
         protected override void Start()
         {
-            var vol = GetVolume();
-            SetVolume(vol);
+            var vol = GameSystem.Instance.GetMixerVolume(_mixerGroup.ToString());
+            _slider.value = vol;
 
             _slider.onValueChanged.AddListener(SetVolumeFromSlider);
         }
 
-        public override void OnSelect(BaseEventData eventData)
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            StopNav();
+            Unbind();
+        }
+
+        public override void OnSelect(BaseEventData eventData) => Bind();
+
+        public override void OnDeselect(BaseEventData eventData)
+        {
+            StopNav();
+            Unbind();
+        }
+
+        private void Bind()
         {
             _inputReader.MenuNavigateEvent += StartNav;
             _inputReader.MenuNavigateCancelledEvent += StopNav;
         }
 
-        public override void OnDeselect(BaseEventData eventData)
+        private void Unbind()
         {
-
-            StopNav();
-
             _inputReader.MenuNavigateEvent -= StartNav;
             _inputReader.MenuNavigateCancelledEvent -= StopNav;
         }
@@ -56,34 +69,9 @@ namespace Template.UI.SelectableControllers
             _direction = 0f;
         }
 
-        private float GetVolume()
-        {
-            var volName = _mixerGroup.ToString();
-            GameSystem.Instance.Mixer.GetFloat(volName, out var vol);
-            return vol;
-        }
-
-        private void SetMixerVolume(float vol)
-        {
-            var volName = _mixerGroup.ToString();
-            GameSystem.Instance.Mixer.SetFloat(volName, vol);
-        }
-
-        private void SetVolume(float vol)
-        {
-            SetMixerVolume(vol);
-
-            _value = vol + 80f;
-            _slider.value = _value / 100f;
-        }
-
         private void SetVolumeFromSlider(float value)
         {
-            var vol = value * 100f - 80;
-
-            Debug.Log(value + " " + vol);
-
-            SetVolume(vol);
+            GameSystem.Instance.SetMixerVolume(_mixerGroup.ToString(), value);
         }
     }
 }
