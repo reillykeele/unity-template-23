@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using Util.UI;
-using Util.UI.Controllers.Selectables.Buttons;
-using Util.UI.Modals;
+using ReiBrary.UI;
+using ReiBrary.UI.Controllers.Selectables.Buttons;
+using ReiBrary.UI.Modals;
 
 namespace Template.UI.ButtonControllers
 {

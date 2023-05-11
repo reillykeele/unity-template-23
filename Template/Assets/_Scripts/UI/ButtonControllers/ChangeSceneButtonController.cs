@@ -1,6 +1,6 @@
-using Util.Coroutine;
-using Util.Systems;
-using Util.UI.Controllers.Selectables.Buttons;
+using ReiBrary.Coroutine;
+using ReiBrary.Systems;
+using ReiBrary.UI.Controllers.Selectables.Buttons;
 
 namespace Template.UI.ButtonControllers
 {
@@ -12,7 +12,7 @@ namespace Template.UI.ButtonControllers
         protected override void OnClick()
         {
             // _canvasAudioController?.FadeOutBackgroundMusic();
-            StartCoroutine(CoroutineUtil.WaitForExecute(() => LoadingSystem.Instance.LoadSceneCoroutine(TargetScene), Delay));
+            StartCoroutine(CoroutineReiBrary.WaitForExecute(() => LoadingSystem.Instance.LoadSceneCoroutine(TargetScene), Delay));
         }
     }
 }

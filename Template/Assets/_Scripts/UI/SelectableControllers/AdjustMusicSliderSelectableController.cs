@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Util.Enums;
-using Util.Systems;
+using ReiBrary.Enums;
+using ReiBrary.Systems;
 
 namespace Template.UI.SelectableControllers
 {

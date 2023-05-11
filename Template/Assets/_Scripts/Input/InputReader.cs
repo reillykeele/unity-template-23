@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using Util.Input;
+using ReiBrary.Input;
 
 namespace Template.Input
 {

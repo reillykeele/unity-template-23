@@ -1,10 +1,10 @@
 using Template.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Util.Audio;
-using Util.Systems;
-using Util.UI;
-using Util.UI.Controllers;
+using ReiBrary.Audio;
+using ReiBrary.Systems;
+using ReiBrary.UI;
+using ReiBrary.UI.Controllers;
 
 namespace UI.UIControllers
 {

@@ -1,8 +1,8 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
-using Util.Audio;
-using Util.Systems;
-using Util.UI.Controllers.Selectables.Buttons;
+using ReiBrary.Audio;
+using ReiBrary.Systems;
+using ReiBrary.UI.Controllers.Selectables.Buttons;
 
 namespace Template.UI.ButtonControllers
 {

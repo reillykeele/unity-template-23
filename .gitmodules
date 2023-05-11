@@ -1,6 +1,6 @@
-[submodule "Template/Assets/Util"]
-	path = Template/Assets/Util
+[submodule "Template/Assets/ReiBrary"]
+	path = Template/Assets/ReiBrary
 	url = https://github.com/reillykeele/unity-util.git
-[submodule "Template/Assets/_Scripts/Util"]
-	path = Template/Assets/_Scripts/Util
+[submodule "Template/Assets/_Scripts/ReiBrary"]
+	path = Template/Assets/_Scripts/ReiBrary
 	url = https://github.com/reillykeele/unity-util.git
