@@ -3,4 +3,4 @@
 	url = https://github.com/reillykeele/unity-util.git
 [submodule "Template/Assets/_Scripts/ReiBrary"]
 	path = Template/Assets/_Scripts/ReiBrary
-	url = https://github.com/reillykeele/unity-util.git
+	url = https://github.com/reillykeele/ReiBrary-Unity
